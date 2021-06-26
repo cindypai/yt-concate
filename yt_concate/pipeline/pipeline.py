@@ -2,7 +2,7 @@ from .steps.step import StepException
 
 
 class Pipeline:
-    def __int__(self, steps):
+    def __init__(self, steps):
         self.steps = steps
 
     def run(self, inputs):
