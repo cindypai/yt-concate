@@ -1,14 +1,21 @@
 from moviepy.editor import VideoFileClip
 from moviepy.editor import concatenate_videoclips
+import logging
 
 from .step import Step
 
 class EditVideo(Step):
     def process(self, data, inputs, utils):
         clips = []
+        logger = logging.getLogger()
         for found in data:
-            print(found.time)
+            logger.info(found.time)
             start, end = self.parse_caption_time(found.time)
+
+            # video = VideoFileClip(found.yt.video_filepath).subclip(start, end)
+            # clips.append(video)
+            # if len(clips) >= inputs['limit']:
+            #     break
             try:
                 video = VideoFileClip(found.yt.video_filepath).subclip(start, end)
                 clips.append(video)
