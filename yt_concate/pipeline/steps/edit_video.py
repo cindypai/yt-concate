@@ -12,7 +12,7 @@ class EditVideo(Step):
             logger.info(found.time)
             start, end = self.parse_caption_time(found.time)
 
-            # video = VideoFileClip(found.yt.video_filepath).subclip(start, end)
+            # ).subclip(stvideo = VideoFileClip(found.yt.video_filepathart, end)
             # clips.append(video)
             # if len(clips) >= inputs['limit']:
             #     break
@@ -25,7 +25,7 @@ class EditVideo(Step):
 
         final_clip = concatenate_videoclips(clips)
         output_filepath = utils.get_output_filepath(inputs['channel_id'], inputs['search_word'])
-        final_clip.write_videofile(output_filepath)
+        final_clip.write_videofile(output_filepath, audio_codec='aac')
 
 
 
